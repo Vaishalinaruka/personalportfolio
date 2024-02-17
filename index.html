@@ -63,12 +63,37 @@
             </p>
 
             <div class="tab-titles">
-              <p class="tab-links">Skills</p>
-              <p class="tab-links">Experience</p>
-              <p class="tab-links">Education</p>
+              <p class="tab-links active-link" onclick="opentab('skills')">Skills</p>
+              <p class="tab-links" onclick="opentab('experience')">Experience</p>
+              <p class="tab-links" onclick="opentab('education')">Education</p>
+            </div>
+            
+            <div class="tab-contents active-tab" id="skills">
+              <ul>
+                <li><span>Frontend Development</span><br />Designing Web Interfaces</li>
+                <li><span>Web Development</span><br />Web app Development</li>
+                <li>
+                  <span>Backend Development</span><br />Backend systems maintenance
+                </li>
+              </ul>
             </div>
 
-            <div id="skills">
+            <div class="tab-contents" id="experience">
+              <ul>
+                <li><span>Recent - 2023</span><br />Javascript Backend Development Internship</li>
+                <li><span>Web Development</span><br />Web app Development</li>
+              </ul>
+            </div>
+
+            <div class="tab-contents" id="education">
+              <ul>
+                <li><span>2022 - 2023</span><br />Complete Web Development Certification</li>
+                <li><span>2017 - 2021</span><br />Bachelors of Science</li>
+              </ul>
+            </div>
+
+
+            <!-- <div id="skills">
               <div class="skill">
                 <p class="red">2016</p>
                 <p>Web Development Course</p>
@@ -86,7 +111,7 @@
             </div>
           </div>
         </div>
-      </div>
+      </div> -->
     </section>
 
     <!---- Services Section ----->
@@ -240,10 +265,31 @@
         </p>
       </div>
     </section>
+    <script>
+      var tablinks = document.getElementsByClassName("tab-links");
+      var tabcontents = document.getElementsByClassName("tab-contents");
+    
+      function opentab(tabname) {
+       for (tablink of tablinks) {
+          tablink.classList.remove("active-link")
+       }
+       for (tabcontent of tabcontents) {
+        tabcontent.classList.remove("active-tab")
+       }
+       event.currentTarget.classList.add("active-link");
+       document.getElementById(tabname).classList.add("active-tab");
+      }
+    
+    </script>
+    
   </body>
 
+
   <script>
-    var sideMenu = document.getElementById("sideMenu");
+
+
+
+    var sideMenu = document.gfetElementById("sideMenu");
 
     function openMenu() {
       sideMenu.style.right = "0";
